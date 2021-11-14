@@ -13,3 +13,8 @@ console.log(firstName);
 console.log(firstName);
 console.log(firstName);
 
+let country = 'Thailand'
+let continent = 'Asia'
+let populations = '63 millions'
+
+console.log(`${country},${continent},${populations}`)
