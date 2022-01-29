@@ -97,37 +97,53 @@
 
 //Code challenge #3
 
-let fDps = 96
-let sDps = 108
-let tDps = 89
+// let fDps = 96
+// let sDps = 108
+// let tDps = 89
 
-fDps = 97
-sDps = 112
-tDps = 101
+// fDps = 97
+// sDps = 112
+// tDps = 101
 
 
-let fKls = 88
-let sKls = 91
-let tKls = 110
+// let fKls = 88
+// let sKls = 91
+// let tKls = 110
 
-fKls = 109
-sKls = 95
-tKls = 123
+// fKls = 109
+// sKls = 95
+// tKls = 123
 
-tKls=106
+// tKls=106
 
-const sumDp = fDps + sDps + tDps
-const sumKl = fKls + sKls + tKls
+// const sumDp = fDps + sDps + tDps
+// const sumKl = fKls + sKls + tKls
 
-const avgDp = sumDp/3
-const avgKl = sumKl/3
+// const avgDp = sumDp/3
+// const avgKl = sumKl/3
 
-if(avgDp > avgKl && avgDp > 100){
-    console.log('Dolphins is the winner' + avgDp)
-}else if(avgDp === avgKl && avgDp > 100 && avgKl > 100){
-    console.log('Both are the winner \n'+ `Dolphins score is ${avgDp} \n` + `Koalas score is ${avgKl}`)
-}else if(avgDp < avgKl && avgKl > 100){
-    console.log('Koalas is the winner' + avgKl)
-}else{
-    console.log('No one wins')
-}
+// if(avgDp > avgKl && avgDp >= 100){
+//     console.log('Dolphins is the winner' + avgDp)
+// }else if(avgDp === avgKl && avgDp >= 100 && avgKl >= 100){
+//     console.log('Both are the winner \n'+ `Dolphins score is ${avgDp} \n` + `Koalas score is ${avgKl}`)
+// }else if(avgDp < avgKl && avgKl >= 100){
+//     console.log('Koalas is the winner' + avgKl)
+// }else{
+//     console.log('No one wins')
+// }
+
+// code challenge# 4
+
+let bill;
+
+bill = 275;
+
+bill = 40;
+
+bill = 430;
+
+const tip =  (bill* [bill >= 50 && bill < 300 ? 15:20])/100;
+
+const total = bill + tip;
+
+console.log(`bill ${bill}, tip ${tip} ,and total ${total}`);
