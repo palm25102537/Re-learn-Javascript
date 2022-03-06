@@ -142,7 +142,7 @@ bill = 40;
 
 bill = 430;
 
-const tip =  (bill* [bill >= 50 && bill < 300 ? 15:20])/100;
+const tip =  (bill* [bill >= 50 && bill <= 300 ? 15:20])/100;
 
 const total = bill + tip;
 
