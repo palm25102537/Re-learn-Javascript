@@ -18,7 +18,7 @@
 // let populations = '63 millions'
 
 // console.log(`${country},${continent},${populations}`)
- // Coding challenge 1
+// Coding challenge 1
 
 // let markHeight;
 // let markWeight;
@@ -62,7 +62,6 @@
 //     console.log(`John's BMI (${johnBMI}) is higher than Mark's (${markBMI2}) `)
 // }
 
-
 // function checkAge(age,name = 'this person'){
 //     const isOldEnough = age >= 18;
 //     if(isNaN(age)){
@@ -105,7 +104,6 @@
 // sDps = 112
 // tDps = 101
 
-
 // let fKls = 88
 // let sKls = 91
 // let tKls = 110
@@ -142,7 +140,7 @@ bill = 40;
 
 bill = 430;
 
-const tip =  (bill* [bill >= 50 && bill <= 300 ? 15:20])/100;
+const tip = (bill * [bill >= 50 && bill <= 300 ? 15 : 20]) / 100;
 
 const total = bill + tip;
 

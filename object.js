@@ -47,28 +47,30 @@
 //Object method
 
 const palm = {
-    firstName:'Wasin',
-    lastName:'Hongnak',
-    birthYear:1994,
-    job:'Frontend Developer',
-    friends:['Bank','Earth'],
-    hasDriversLicense:true,
-    // calAge:function (birthYear){
-    //     return +(new Date().getFullYear()) - birthYear
-    // }
-    // calAge:function(){
-    //     console.log('this',this) // this point to palm object
-    //     return +(new Date().getFullYear()) - this.birthYear
-    // }
-    calAge:function(){
-        this.age = +(new Date().getFullYear()) - this.birthYear
-        return this.age
-    },
+  firstName: "Wasin",
+  lastName: "Hongnak",
+  birthYear: 1994,
+  job: "Frontend Developer",
+  friends: ["Bank", "Earth"],
+  hasDriversLicense: true,
+  // calAge:function (birthYear){
+  //     return +(new Date().getFullYear()) - birthYear
+  // }
+  // calAge:function(){
+  //     console.log('this',this) // this point to palm object
+  //     return +(new Date().getFullYear()) - this.birthYear
+  // }
+  calAge: function () {
+    this.age = +new Date().getFullYear() - this.birthYear;
+    return this.age;
+  },
 
-    summary:function (){
-        return `${this.firstName} is a ${this.calAge()}-year old ${this.job}, and he has ${this.hasDriversLicense? 'a':'no'} driver's license`
-    }
-}
+  summary: function () {
+    return `${this.firstName} is a ${this.calAge()}-year old ${
+      this.job
+    }, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license`;
+  },
+};
 
 // console.log(palm.calAge(1994))
 // console.log(palm['calAge'](1994))
@@ -78,43 +80,44 @@ const palm = {
 // palm.calAge()
 // console.log(palm.age)
 
-
-
-console.log(palm.summary())
+console.log(palm.summary());
 
 // for (i = 0; i<= 10;i++){
 //     console.log(i)
 // }
 
-
 const mark = {
-    fullName:'Mark Miller',
-    mass:78,
-    height:1.69,
-    calBMI:function(){
-        this.bmi = this.mass/(this.height**2)
-        return this.mass/(this.height**2)
-    }
-}
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.mass / this.height ** 2;
+  },
+};
 
 const john = {
-    fullName:'John Smith',
-    mass:92,
-    height:1.95,
-    calBMI:function(){
-        this.bmi = this.mass/(this.height**2)
-        return this.mass/(this.height**2)
-    }
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.mass / this.height ** 2;
+  },
+};
+
+function compareBMI(obj1, obj2) {
+  if (!Object.keys(obj1).length || !Object.keys(obj2).length) {
+    return "Need information to compare";
+  } else {
+    return obj1.calBMI() > obj2.calBMI()
+      ? `${obj1.fullName}'s BMI (${obj1.calBMI()}) is higher than ${
+          obj2.fullName
+        }'s BMI (${obj2.calBMI()})!`
+      : `${obj2.fullName}'s BMI (${obj2.calBMI()}) is higher than ${
+          obj1.fullName
+        }'s BMI (${obj1.calBMI()})!`;
+  }
 }
 
-function compareBMI(obj1,obj2){
-    if(!Object.keys(obj1).length || !Object.keys(obj2).length){
-        return 'Need information to compare'
-    }else{
-      return  obj1.calBMI() > obj2.calBMI()? 
-      `${obj1.fullName}'s BMI (${obj1.calBMI()}) is higher than ${obj2.fullName}'s BMI (${obj2.calBMI()})!` :
-      `${obj2.fullName}'s BMI (${obj2.calBMI()}) is higher than ${obj1.fullName}'s BMI (${obj1.calBMI()})!`
-    }
-}
-
-console.log(compareBMI(mark,john))
+console.log(compareBMI(mark, john));

@@ -1,4 +1,4 @@
-'use strict'; //activate strict mode to avoid error and create visible mistake
+"use strict"; //activate strict mode to avoid error and create visible mistake
 
 // let hasDriversLicense = false;
 // const passTest = true;
@@ -9,9 +9,8 @@
 
 // if(hasDriversLicense) console.log('I can drive XD')
 
-
 // function logger() {
- //function body execute when run function
+//function body execute when run function
 //  console.log('My name is Palm')
 // }
 
@@ -29,7 +28,7 @@
 // console.log(anotherJuice)
 
 //use keyword function to declare (function declaration)
-// can call before function is defined 
+// can call before function is defined
 // function calAge1(birthYear){
 //     const present = new Date().getFullYear()
 
@@ -87,57 +86,58 @@
 //code challenge
 
 const calcAverage = (...scores) => {
-    const score = [...scores];
-    
-    const sum = score.reduce((acc,ele)=>{
-        acc = acc + ele
-        return acc
-    },0)
+  const score = [...scores];
 
-    const avg = sum/score.length
-    console.log(avg)
-    return avg
-}
+  const sum = score.reduce((acc, ele) => {
+    acc = acc + ele;
+    return acc;
+  }, 0);
 
+  const avg = sum / score.length;
+  console.log(avg);
+  return avg;
+};
 
 const checkWinner = (avgScore) => {
-    
-    let winScore = [];
+  let winScore = [];
 
-   avgScore.forEach((item,idx)=>{
-    if(idx === 0){
-        winScore.push(item.score)
-    }else{
-        if(winScore[0] > (2*item.score)){         
-            return;
-        }else if(winScore[0] === item.score || winScore[0] < (2*item.score)){
-            winScore.splice(0,1)
-            return;
-        }else{   
-            winScore.splice(0,1)
-            winScore.push(item.score)
-        }  
-    }    
-})
+  avgScore.forEach((item, idx) => {
+    if (idx === 0) {
+      winScore.push(item.score);
+    } else {
+      if (winScore[0] > 2 * item.score) {
+        return;
+      } else if (winScore[0] === item.score || winScore[0] < 2 * item.score) {
+        winScore.splice(0, 1);
+        return;
+      } else {
+        winScore.splice(0, 1);
+        winScore.push(item.score);
+      }
+    }
+  });
 
- const idx = avgScore.findIndex((item)=>item.score === winScore[0])
- switch(idx){
-     case 0:
-         return `${avgScore[idx].team} win (${avgScore[idx].score} VS ${avgScore[idx+1].score})`
-     case 1:
-        return `${avgScore[idx].team} win (${avgScore[idx].score} VS ${avgScore[idx-1].score})`
-     default:
-         return 'No winner'
- }
-  
-}
+  const idx = avgScore.findIndex((item) => item.score === winScore[0]);
+  switch (idx) {
+    case 0:
+      return `${avgScore[idx].team} win (${avgScore[idx].score} VS ${
+        avgScore[idx + 1].score
+      })`;
+    case 1:
+      return `${avgScore[idx].team} win (${avgScore[idx].score} VS ${
+        avgScore[idx - 1].score
+      })`;
+    default:
+      return "No winner";
+  }
+};
 
-const dolphins = {team:'Dolphins',score:calcAverage(44,23,71)}
-const koalas = {team:'Koalas',score:calcAverage(65,54,49)}
+const dolphins = { team: "Dolphins", score: calcAverage(44, 23, 71) };
+const koalas = { team: "Koalas", score: calcAverage(65, 54, 49) };
 
-console.log(checkWinner([dolphins,koalas]))
+console.log(checkWinner([dolphins, koalas]));
 
-const dolphins2 = {team:'Dolphins',score:calcAverage(85,54,41)}
-const koalas2 = {team:'Koalas',score:calcAverage(23,34,27)}
+const dolphins2 = { team: "Dolphins", score: calcAverage(85, 54, 41) };
+const koalas2 = { team: "Koalas", score: calcAverage(23, 34, 27) };
 
-console.log(checkWinner([dolphins2,koalas2]))
+console.log(checkWinner([dolphins2, koalas2]));
