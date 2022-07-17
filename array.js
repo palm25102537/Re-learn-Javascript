@@ -121,32 +121,45 @@ const game = {
   },
 };
 
-const [player1, player2] = game.players;
+const { scored, odds } = game;
 
-console.log(player1, player2);
-
-const [gk, ...fieldPlayer] = player1;
-
-console.log(gk, fieldPlayer);
-
-const allPlayers = [...player1, ...player2];
-
-console.log(allPlayers);
-
-const players1Final = [...player1, "Thiago", "Coutinho", "Perisic"];
-
-console.log(players1Final);
-
-const { team1, x: draw, team2 } = game.odds;
-
-console.log(team1, draw, team2);
-
-function printGoals(...players) {
-  console.log(players);
-  console.log(`${players.length} goals were scored`);
+for ([idx, playerName] of scored.entries()) {
+  console.log(`Goal ${idx + 1}: ${playerName}`);
 }
 
-printGoals(...game.scored);
+let sum = 0;
+for ([key, value] of Object.entries(odds)) {
+  sum += value;
+  console.log(`Odd of ${game[key] ? "victory" + " " + game[key] : "draw"}`);
+}
+const avg = sum / Object.entries(odds).length;
+console.log(avg);
+// const [player1, player2] = game.players;
 
-team1 < team2 && console.log("Team1 is more likely to win");
-team1 > team2 && console.log("Team2 is more likely to win");
+// console.log(player1, player2);
+
+// const [gk, ...fieldPlayer] = player1;
+
+// console.log(gk, fieldPlayer);
+
+// const allPlayers = [...player1, ...player2];
+
+// console.log(allPlayers);
+
+// const players1Final = [...player1, "Thiago", "Coutinho", "Perisic"];
+
+// console.log(players1Final);
+
+// const { team1, x: draw, team2 } = game.odds;
+
+// console.log(team1, draw, team2);
+
+// function printGoals(...players) {
+//   console.log(players);
+//   console.log(`${players.length} goals were scored`);
+// }
+
+// printGoals(...game.scored);
+
+// team1 < team2 && console.log("Team1 is more likely to win");
+// team1 > team2 && console.log("Team2 is more likely to win");
