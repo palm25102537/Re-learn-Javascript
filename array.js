@@ -206,33 +206,53 @@
 // console.log(typeof answer, answer);
 // console.log(question.get(answer === question.get("correct")));
 
-const gameEvents = new Map([
-  [17, "⚽️ GOAL"],
-  [36, "🔁 Substitution"],
-  [47, "⚽️ GOAL"],
-  [61, "🔁 Substitution"],
-  [64, "🔶 Yellow card"],
-  [69, "🔴 Red card"],
-  [70, "🔁 Substitution"],
-  [72, "🔁 Substitution"],
-  [76, "⚽️ GOAL"],
-  [80, "⚽️ GOAL"],
-  [92, "🔶 Yellow card"],
-]);
+// const gameEvents = new Map([
+//   [17, "⚽️ GOAL"],
+//   [36, "🔁 Substitution"],
+//   [47, "⚽️ GOAL"],
+//   [61, "🔁 Substitution"],
+//   [64, "🔶 Yellow card"],
+//   [69, "🔴 Red card"],
+//   [70, "🔁 Substitution"],
+//   [72, "🔁 Substitution"],
+//   [76, "⚽️ GOAL"],
+//   [80, "⚽️ GOAL"],
+//   [92, "🔶 Yellow card"],
+// ]);
 
-const uniqueEvents = new Set(gameEvents.values());
-const events = [...uniqueEvents];
-console.log(events);
-gameEvents.delete(64);
-const avgEventHappened = 90 / gameEvents.size;
-const realAvgEventHappened = [...gameEvents.keys()].pop() / gameEvents.size;
-console.log(
-  `An event happened, on average , every ${avgEventHappened} minutes`
-);
-console.log(
-  `An event happened, on average , every ${realAvgEventHappened} minutes`
-);
+// const uniqueEvents = new Set(gameEvents.values());
+// const events = [...uniqueEvents];
+// console.log(events);
+// gameEvents.delete(64);
+// const avgEventHappened = 90 / gameEvents.size;
+// const realAvgEventHappened = [...gameEvents.keys()].pop() / gameEvents.size;
+// console.log(
+//   `An event happened, on average , every ${avgEventHappened} minutes`
+// );
+// console.log(
+//   `An event happened, on average , every ${realAvgEventHappened} minutes`
+// );
 
-for (let [key, value] of gameEvents.entries()) {
-  console.log(`[${key <= 45 ? "FIRST" : "SECOND"} HALF] ${key} : ${value}`);
+// for (let [key, value] of gameEvents.entries()) {
+//   console.log(`[${key <= 45 ? "FIRST" : "SECOND"} HALF] ${key} : ${value}`);
+// }
+
+//for each loop
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 13000];
+
+for (movement of movements) {
+  if (movement > 0) {
+    console.log("deposit" + " " + movement);
+  } else {
+    console.log("withdraw" + " " + movement);
+  }
 }
+console.log("------ For Each -----");
+movements.forEach((movement) => {
+  if (movement > 0) {
+    console.log("deposit" + " " + movement);
+  } else {
+    console.log("withdraw" + " " + movement);
+  }
+});
