@@ -239,20 +239,75 @@
 
 //for each loop
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 13000];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 13000];
 
-for (movement of movements) {
-  if (movement > 0) {
-    console.log("deposit" + " " + movement);
-  } else {
-    console.log("withdraw" + " " + movement);
-  }
+// for (movement of movements) {
+//   if (movement > 0) {
+//     console.log("deposit" + " " + movement);
+//   } else {
+//     console.log("withdraw" + " " + movement);
+//   }
+// }
+// console.log("------ For Each -----");
+// movements.forEach((movement) => {
+//   if (movement > 0) {
+//     console.log("deposit" + " " + movement);
+//   } else {
+//     console.log("withdraw" + " " + movement);
+//   }
+// });
+
+//filter
+
+// const deposits = movements.filter((item) => {
+//   return item > 0;
+// });
+
+// console.log(movements);
+// console.log(deposits);
+
+// const depositsFor = [];
+
+// for (mov of movements) {
+//   if (mov > 0) {
+//     depositsFor.push(mov);
+//   }
+// }
+
+// console.log(depositsFor);
+
+//code challenge
+
+function calcDogAge(ages) {
+  const dogAgesInHuman = ages.map((age) => {
+    // if (age <= 0) {
+    //   return (age = 0);
+    // }
+    // if (age <= 2) {
+    //   return age * 2;
+    // }
+    // if (age > 2) {
+    //   return 16 + age * 4;
+    // }
+    //refactors
+    return age <= 2 ? (age <= 0 ? 0 : 2 * age) : 16 + age * 4;
+  });
+  return dogAgesInHuman;
 }
-console.log("------ For Each -----");
-movements.forEach((movement) => {
-  if (movement > 0) {
-    console.log("deposit" + " " + movement);
-  } else {
-    console.log("withdraw" + " " + movement);
-  }
-});
+
+function filterDogAge(ages) {
+  const filteredDog = calcDogAge(ages).filter((age) => age >= 18);
+  return filteredDog;
+}
+
+function calcDogAgeAvg(ages) {
+  const avgDogAge =
+    calcDogAge(ages).reduce((acc, age) => {
+      return acc + age;
+    }, 0) / ages.length;
+  return avgDogAge;
+}
+
+console.log(calcDogAge([5, 2, 4, 1, 15, 8, 3, 0]));
+console.log(filterDogAge([5, 2, 4, 1, 15, 8, 3, 0]));
+console.log(calcDogAgeAvg([5, 2, 4, 1, 15, 8, 3, 0]));
