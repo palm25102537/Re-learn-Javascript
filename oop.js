@@ -1,39 +1,39 @@
 "use strict";
 //constructor function
 //arrow function can't use as constructor function because there isn't own this keyword
-const Person = function (firstName, birthYear) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
-  //Never create function in constructor because when create new obj, it created function
-  //   console.log("this", this);
-  //   console.log("firstName", this.firstName);
-  //   console.log("birthYear", this.birthYear);
-};
+// const Person = function (firstName, birthYear) {
+//   this.firstName = firstName;
+//   this.birthYear = birthYear;
+//Never create function in constructor because when create new obj, it created function
+//   console.log("this", this);
+//   console.log("firstName", this.firstName);
+//   console.log("birthYear", this.birthYear);
+// };
 
-const palm = new Person("Jonas", 1991);
-console.log(palm);
-console.log(palm instanceof Person);
+// const palm = new Person("Jonas", 1991);
+// console.log(palm);
+// console.log(palm instanceof Person);
 // 1. New {} is created
 // 2. function is called, this = new {}
 // 3. new {} linked to prototype
 // 4. function automatically return {}
-console.log(Person.prototype);
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
+// console.log(Person.prototype);
+// Person.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
 
-palm.calcAge();
+// palm.calcAge();
 
-console.log(palm.__proto__);
-console.log(palm.__proto__.__proto__);
+// console.log(palm.__proto__);
+// console.log(palm.__proto__.__proto__);
 
-const arr = [3, 6, 4, 5, 6, 9, 3]; // [] === short hand new Array
+// const arr = [3, 6, 4, 5, 6, 9, 3]; // [] === short hand new Array
 
-Array.prototype.unique = function () {
-  return [...new Set(this)];
-};
+// Array.prototype.unique = function () {
+//   return [...new Set(this)];
+// };
 
-console.log(arr.unique());
+// console.log(arr.unique());
 
 //challenge 1
 // const Car = function (name, speed) {
@@ -86,37 +86,68 @@ console.log(arr.unique());
 
 //Code Challenge 2
 
-const Car = {
-  init(name, speed) {
-    this.name = name;
-    this.speed = speed;
-  },
+// const Car = {
+//   init(name, speed) {
+//     this.name = name;
+//     this.speed = speed;
+//   },
 
-  get speedUs() {
-    return this.speed / 1.6;
-  },
+//   get speedUs() {
+//     return this.speed / 1.6;
+//   },
 
-  set speedUs(speed) {
-    this.speed = speed * 1.6;
-  },
+//   set speedUs(speed) {
+//     this.speed = speed * 1.6;
+//   },
 
-  accelerate() {
-    this.speed += 10;
-    console.log(`${this.name} is going at ${this.speed} km/h`);
-  },
+//   accelerate() {
+//     this.speed += 10;
+//     console.log(`${this.name} is going at ${this.speed} km/h`);
+//   },
 
-  break() {
-    this.speed -= 5;
-    console.log(`${this.name} is going at ${this.speed} km/h`);
-  },
+//   break() {
+//     this.speed -= 5;
+//     console.log(`${this.name} is going at ${this.speed} km/h`);
+//   },
+// };
+
+// const ford = Object.create(Car);
+
+// ford.init("Ford", 120);
+// ford.accelerate();
+// ford.accelerate();
+// ford.break();
+// ford.speedUs = 50;
+// console.log(ford);
+// console.log(ford.speedUs);
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
 };
 
-const ford = Object.create(Car);
+Person.prototype.calAge = function () {
+  console.log(2037 - +this.birthYear);
+};
 
-ford.init("Ford", 120);
-ford.accelerate();
-ford.accelerate();
-ford.break();
-ford.speedUs = 50;
-console.log(ford);
-console.log(ford.speedUs);
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student("Mike", 2020, "Computer Science");
+
+mike.introduce();
+mike.calAge();
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+Student.prototype.constructor = Student;
+
+console.dir(Student.prototype.constructor);
