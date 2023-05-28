@@ -36,25 +36,87 @@ Array.prototype.unique = function () {
 console.log(arr.unique());
 
 //challenge 1
-const Car = function (name, speed) {
-  this.name = name;
-  this.speed = speed;
+// const Car = function (name, speed) {
+//   this.name = name;
+//   this.speed = speed;
+// };
+
+// Car.prototype.accelerate = function () {
+//   this.speed += 10;
+//   console.log(`${this.name} is going to at ${this.speed} km/h`);
+// };
+
+// Car.prototype.break = function () {
+//   this.speed -= 5;
+//   console.log(`${this.name} is going to at ${this.speed} km/h`);
+// };
+
+// const bmw = new Car("BMW", 120);
+// const mercedes = new Car("Mercedes", 95);
+
+// bmw.accelerate();
+// bmw.accelerate();
+// bmw.break();
+// bmw.accelerate();
+
+// const account = {
+//   owner: "Jonas",
+//   movements: [200, 530, 120, 300],
+//   get lastest() {
+//     return this.movements.slice(-1).pop();
+//   },
+// };
+
+// const PersonProto = {
+//   calAge() {
+//     console.log(2037 - this.birthYear);
+//   },
+//   init(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   },
+// };
+
+// const steven = Object.create(PersonProto);
+// steven.name = "Steven";
+// steven.birthYear = 2002;
+// steven.calAge();
+
+// const sarah = Object.create(PersonProto);
+
+//Code Challenge 2
+
+const Car = {
+  init(name, speed) {
+    this.name = name;
+    this.speed = speed;
+  },
+
+  get speedUs() {
+    return this.speed / 1.6;
+  },
+
+  set speedUs(speed) {
+    this.speed = speed * 1.6;
+  },
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.name} is going at ${this.speed} km/h`);
+  },
+
+  break() {
+    this.speed -= 5;
+    console.log(`${this.name} is going at ${this.speed} km/h`);
+  },
 };
 
-Car.prototype.accelerate = function () {
-  this.speed += 10;
-  console.log(`${this.name} is going to at ${this.speed} km/h`);
-};
+const ford = Object.create(Car);
 
-Car.prototype.break = function () {
-  this.speed -= 5;
-  console.log(`${this.name} is going to at ${this.speed} km/h`);
-};
-
-const bmw = new Car("BMW", 120);
-const mercedes = new Car("Mercedes", 95);
-
-bmw.accelerate();
-bmw.accelerate();
-bmw.break();
-bmw.accelerate();
+ford.init("Ford", 120);
+ford.accelerate();
+ford.accelerate();
+ford.break();
+ford.speedUs = 50;
+console.log(ford);
+console.log(ford.speedUs);
